@@ -8,6 +8,7 @@ class Item(SQLModel, table=True):
     description: Optional[str] = None
     price: float
     is_active: bool = True
+    owner_id: int = Field(index=True)
 
 
 # схеми, які використовуємо для вхідних/вихідних даних
@@ -15,6 +16,7 @@ class ItemCreate(SQLModel):
     title: str
     description: Optional[str] = None
     price: float
+    owner_id: int
 
 
 class ItemRead(SQLModel):
@@ -23,6 +25,7 @@ class ItemRead(SQLModel):
     description: Optional[str] = None
     price: float
     is_active: bool
+    owner_id: int
 
 
 class ItemUpdate(SQLModel):
